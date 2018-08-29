@@ -1,7 +1,8 @@
 import yaml
 import os
 
-for checks in yaml.load(open('/Users/Lawrence/Documents/DEV/ingenico/sites.yml')).itervalues():
+absolute_path = os.path.dirname(os.path.abspath(__file__))
+for checks in yaml.load(open(absolute_path +'/sites.yml')).itervalues():
     for ping in checks.itervalues():
         for k, v in ping.iteritems():
             sites_list = v.split(':')
